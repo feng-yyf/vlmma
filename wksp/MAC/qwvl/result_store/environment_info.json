@@ -1,0 +1,47 @@
+{
+  "python_version": "3.11.11 (main, Dec 11 2024, 16:28:39) [GCC 11.2.0]",
+  "torch_version": "2.6.0+cu124",
+  "flash_attention_2_enabled": true,
+  "cuda_available": true,
+  "cuda_device_count": 4,
+  "cuda_devices": [
+    {
+      "index": 0,
+      "name": "NVIDIA GeForce RTX 3090",
+      "capability": [
+        8,
+        6
+      ],
+      "total_memory": "24135.19 MB"
+    },
+    {
+      "index": 1,
+      "name": "NVIDIA GeForce RTX 3090",
+      "capability": [
+        8,
+        6
+      ],
+      "total_memory": "24135.19 MB"
+    },
+    {
+      "index": 2,
+      "name": "NVIDIA GeForce RTX 3090",
+      "capability": [
+        8,
+        6
+      ],
+      "total_memory": "24135.19 MB"
+    },
+    {
+      "index": 3,
+      "name": "NVIDIA GeForce RTX 3090",
+      "capability": [
+        8,
+        6
+      ],
+      "total_memory": "24135.19 MB"
+    }
+  ],
+  "current_device": 0,
+  "device_name": "NVIDIA GeForce RTX 3090"
+}

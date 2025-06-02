@@ -1,0 +1,33 @@
+{
+  "inference_result": {
+    "description": "在这些连续的视频帧中，人物的身体位置和姿势基本保持不变。以下是观察到的细微变化：",
+    "micro_actions": [
+      {
+        "action": "嘴巴张开",
+        "body_part": "面部",
+        "description": "人物的嘴巴微微张开，似乎在说话或微笑"
+      },
+      {
+        "action": "头部晃动",
+        "body_part": "头部",
+        "description": "头部轻微晃动，可能是在点头或摇头"
+      },
+      {
+        "action": "双手交叉",
+        "body_part": "手臂",
+        "description": "双手交叉放在膝盖上，手臂的位置没有明显变化"
+      },
+      {
+        "action": "脚尖抖动",
+        "body_part": "腿部",
+        "description": "双腿保持直立，脚尖微微抬起，似乎在轻轻抖动"
+      },
+      {
+        "action": "无明显动作",
+        "body_part": "身体其他部位",
+        "description": "身体其他部位没有明显的动作变化"
+      }
+    ],
+    "summary": "总体来看，人物在这些帧中保持相对静止的状态，只有头部和脚部有轻微的动作。"
+  }
+}

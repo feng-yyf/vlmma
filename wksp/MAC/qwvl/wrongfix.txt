@@ -1,0 +1,291 @@
+(base) bd2@39c:~/wksp$ cd MAC/qwvl
+(base) bd2@39c:~/wksp/MAC/qwvl$ conda activate qwvl
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python test.py
+[mov,mp4,m4a,3gp,3g2,mj2 @ 0x5166e40] moov atom not found
+FPS: 0.0
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python test.py
+FPS: 30.0
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python demo_video.py
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 5/5 [00:00<00:00, 44.94it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Traceback (most recent call last):
+  File "/home/bd2/wksp/MAC/qwvl/demo_video.py", line 198, in <module>
+    frame_file_uris = slice_video_to_frames(video_path, output_dir) #yyf
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/bd2/wksp/MAC/qwvl/demo_video.py", line 21, in slice_video_to_frames
+    os.makedirs(output_dir, exist_ok=True)
+  File "<frozen os>", line 215, in makedirs
+  File "<frozen os>", line 225, in makedirs
+PermissionError: [Errno 13] Permission denied: '/video_frames_cut'
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python demo_video.py
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 5/5 [00:00<00:00, 45.00it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 444 frames from train0028.mp4
+Unused or unrecognized kwargs: return_tensors, fps.
+Token indices sequence length is longer than the specified maximum sequence length for this model (143038 > 131072). Running this sequence through the model will result in indexing errors
+推理过程中出错：CUDA out of memory. Tried to allocate 2.73 GiB. GPU 5 has a total capacity of 23.57 GiB of which 124.44 MiB is free. Including non-PyTorch memory, this process has 23.43 GiB memory in use. Of the allocated memory 22.17 GiB is allocated by PyTorch, and 983.41 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ import cv2
+import json
+
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python demo_video.py
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 5/5 [00:00<00:00, 44.78it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: fps, return_tensors.
+推理过程中出错：CUDA out of memory. Tried to allocate 1.25 GiB. GPU 5 has a total capacity of 23.57 GiB of which 750.44 MiB is free. Including non-PyTorch memory, this process has 22.81 GiB memory in use. Of the allocated memory 21.22 GiB is allocated by PyTorch, and 1.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ nvidia-smi
+Tue May 20 14:11:54 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off |   00000000:4F:00.0 Off |                  N/A |
+| 36%   20C    P8             22W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 3090        Off |   00000000:52:00.0 Off |                  N/A |
+| 36%   21C    P8             18W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce RTX 3090        Off |   00000000:56:00.0 Off |                  N/A |
+| 36%   22C    P8             27W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA GeForce RTX 3090        Off |   00000000:57:00.0 Off |                  N/A |
+| 36%   22C    P8             18W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA GeForce RTX 3090        Off |   00000000:CE:00.0 Off |                  N/A |
+| 36%   20C    P8             20W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA GeForce RTX 3090        Off |   00000000:D1:00.0 Off |                  N/A |
+| 36%   23C    P8             28W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA GeForce RTX 3090        Off |   00000000:D5:00.0 Off |                  N/A |
+| 36%   23C    P8             24W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA GeForce RTX 3090        Off |   00000000:D6:00.0 Off |                  N/A |
+| 36%   21C    P8             10W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    0   N/A  N/A          741221      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    1   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    1   N/A  N/A          741332      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    2   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    2   N/A  N/A          741446      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    3   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    3   N/A  N/A          741566      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    4   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    5   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    6   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    7   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python demo_video.py
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 5/5 [00:00<00:00, 44.31it/s]
+flash_attention_2
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: return_tensors, fps.
+推理过程中出错：CUDA out of memory. Tried to allocate 1.25 GiB. GPU 5 has a total capacity of 23.57 GiB of which 750.44 MiB is free. Including non-PyTorch memory, this process has 22.81 GiB memory in use. Of the allocated memory 21.22 GiB is allocated by PyTorch, and 1.29 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ python demo_video.py
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 2/2 [00:00<00:00, 13.01it/s]
+flash_attention_2
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: return_tensors, fps.
+推理过程中出错：CUDA out of memory. Tried to allocate 13.87 GiB. GPU 5 has a total capacity of 23.57 GiB of which 11.59 GiB is free. Including non-PyTorch memory, this process has 11.96 GiB memory in use. Of the allocated memory 9.84 GiB is allocated by PyTorch, and 1.81 GiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ CUDA_VISIBLE_DEVICES=4,5,6,7 python demo_video.py
+Loading checkpoint shards: 100%|███████████████████████████████████████████████| 2/2 [00:01<00:00,  1.36it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: return_tensors, fps.
+推理过程中出错：'dict' object has no attribute 'input_ids'
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ nvidia-smi
+Tue May 20 14:17:29 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off |   00000000:4F:00.0 Off |                  N/A |
+| 36%   21C    P8             23W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 3090        Off |   00000000:52:00.0 Off |                  N/A |
+| 36%   22C    P8             19W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce RTX 3090        Off |   00000000:56:00.0 Off |                  N/A |
+| 36%   22C    P8             22W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA GeForce RTX 3090        Off |   00000000:57:00.0 Off |                  N/A |
+| 36%   23C    P8             18W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA GeForce RTX 3090        Off |   00000000:CE:00.0 Off |                  N/A |
+| 36%   24C    P8             21W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA GeForce RTX 3090        Off |   00000000:D1:00.0 Off |                  N/A |
+| 36%   26C    P8             22W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA GeForce RTX 3090        Off |   00000000:D5:00.0 Off |                  N/A |
+| 36%   28C    P8             18W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA GeForce RTX 3090        Off |   00000000:D6:00.0 Off |                  N/A |
+| 36%   26C    P8             12W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    0   N/A  N/A          741221      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    1   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    1   N/A  N/A          741332      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    2   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    2   N/A  N/A          741446      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    3   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    3   N/A  N/A          741566      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    4   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    5   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    6   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    7   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ CUDA_VISIBLE_DEVICES=4,5,6,7 python demo_video.py
+Loading checkpoint shards: 100%|██████████| 2/2 [00:01<00:00,  1.36it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: fps, return_tensors.
+推理结果：
+01 坐姿保持不变+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ nvidia-smi
+Tue May 20 14:25:43 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.133.20             Driver Version: 570.133.20     CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 3090        Off |   00000000:4F:00.0 Off |                  N/A |
+| 36%   19C    P8             21W /  216W |   23703MiB /  24576MiB |      1%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA GeForce RTX 3090        Off |   00000000:52:00.0 Off |                  N/A |
+| 36%   20C    P8             17W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA GeForce RTX 3090        Off |   00000000:56:00.0 Off |                  N/A |
+| 36%   21C    P8             22W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA GeForce RTX 3090        Off |   00000000:57:00.0 Off |                  N/A |
+| 36%   21C    P8             17W /  216W |   23703MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   4  NVIDIA GeForce RTX 3090        Off |   00000000:CE:00.0 Off |                  N/A |
+| 36%   23C    P8             19W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   5  NVIDIA GeForce RTX 3090        Off |   00000000:D1:00.0 Off |                  N/A |
+| 36%   25C    P8             22W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   6  NVIDIA GeForce RTX 3090        Off |   00000000:D5:00.0 Off |                  N/A |
+| 36%   28C    P8             18W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   7  NVIDIA GeForce RTX 3090        Off |   00000000:D6:00.0 Off |                  N/A |
+| 36%   26C    P8             11W /  216W |      18MiB /  24576MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    0   N/A  N/A          741221      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    1   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    1   N/A  N/A          741332      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    2   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    2   N/A  N/A          741446      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    3   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    3   N/A  N/A          741566      C   ...vs/vllm_deepseek_0/bin/python      23680MiB |
+|    4   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    5   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    6   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
+|    7   N/A  N/A            3808      G   /usr/lib/xorg/Xorg                        4MiB |
++-----------------------------------------------------------------------------------------+
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ watch -n 1 nvidia-smi
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ CUDA_VISIBLE_DEVICES=4,5,6,7 python demo_video.py
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 2/2 [00:01<00:00,  1.34it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: return_tensors, fps.
+推理结果：
+01 坐姿保持不变+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着不动+坐着
+(qwvl) bd2@39c:~/wksp/MAC/qwvl$ CUDA_VISIBLE_DEVICES=4,5,6,7 python demo_video.py
+Loading checkpoint shards: 100%|██████████████████████████████████████████████████████████████████████████████████████████| 5/5 [00:02<00:00,  1.81it/s]
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+You have video processor config saved in `preprocessor.json` file which is deprecated. Video processor configs should be saved in their own `video_preprocessor.json` file. You can rename the file or load and save the processor back which renames it automatically. Loading from `preprocessor.json` will be removed in v5.0.
+视频帧率：30.0 fps
+Extracted 152 frames from train0005.mp4
+Unused or unrecognized kwargs: fps, return_tensors.
+推理结果：
+0       sitting straightly      人物坐在红色凳子上，身体保持直立。[0-10]
+1       sitting straightly      人物坐在红色凳子上，身体保持直立。[10-20]
+2       sitting straightly      人物坐在红色凳子上，身体保持直立。[20-30]
+3       sitting straightly      人物坐在红色凳子上，身体保持直立。[30-40]
+4       sitting straightly      人物坐在红色凳子上，身体保持直立。[40-50]
+5       sitting straightly      人物坐在红色凳子上，身体保持直立。[50-60]
+6       sitting straightly      人物坐在红色凳子上，身体保持直立。[60-70]
+7       sitting straightly      人物坐在红色凳子上，身体保持直立。[70-80]
+8       sitting straightly      人物坐在红色凳子上，身体保持直立。[80-90]
+9       sitting straightly      人物坐在红色凳子上，身体保持直立。[90-100]
+10      sitting straightly
+微动作 JSON 已保存至：./qwvl/micro_actions_output.json

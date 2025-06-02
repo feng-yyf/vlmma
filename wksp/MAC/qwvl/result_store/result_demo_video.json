@@ -1,0 +1,35 @@
+[
+  {
+    "person_id": "1",
+    "action": "sitting straightly",
+    "description": "人物坐在红色凳子上，身体保持直立。",
+    "time": "0-10"
+  },
+  {
+    "person_id": "1",
+    "action": "shaking legs",
+    "description": "人物坐在红色凳子上，双腿轻微晃动。",
+    "time": "10-20"
+  },
+  {
+    "person_id": "1",
+    "action": "scratching legs",
+    "description": "人物坐在红色凳子上，用右手轻触腿部。",
+    "time": "20-30"
+  },
+  {
+    "person_id": "1",
+    "action": "crossing legs",
+    "description": "人物坐在红色凳子上，双腿交叉。",
+    "time": "30-40"
+  },
+  {
+    "person_id": "1",
+    "action": "retracting legs",
+    "description": "人物坐在红色凳子上，双腿收回。",
+    "time": "40-50"
+  },
+  {
+     "person_id": "1"
+  } 
+]
